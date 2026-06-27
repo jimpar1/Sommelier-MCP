@@ -1,0 +1,1513 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://example.org/wine-dss"
+         xmlns="http://example.org/wine-dss#">
+
+<owl:Ontology rdf:about="http://example.org/wine-dss"/>
+
+<owl:ObjectProperty rdf:about="#hasTypicalColor">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#WineVariety"/>
+  <rdfs:range rdf:resource="#WineColor"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasTypicalBody">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#WineVariety"/>
+  <rdfs:range rdf:resource="#WineBody"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasTypicalSugar">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#WineVariety"/>
+  <rdfs:range rdf:resource="#WineSugar"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasTypicalFlavor">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#WineVariety"/>
+  <rdfs:range rdf:resource="#WineFlavor"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#originatesFrom">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#WineVariety"/>
+  <rdfs:range rdf:resource="#Country"/>
+
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#canProduceColor">
+  <rdfs:domain rdf:resource="#WineVariety"/>
+  <rdfs:range rdf:resource="#WineColor"/>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="#hasVarietyName">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#WineVariety"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasSKU">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#WineVariety"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#isAromatic">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#WineVariety"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#isIndigenousToGreece">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#WineVariety"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasSynonym">
+  <rdfs:domain rdf:resource="#WineVariety"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#WineVariety">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#WineColor">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#WineBody">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#WineSugar">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#WineFlavor">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Country">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#RedVariety">
+  <rdfs:subClassOf rdf:resource="#WineVariety"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#WineVariety"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasTypicalColor"/>
+          <owl:hasValue rdf:resource="#Red"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#WhiteVariety">
+  <rdfs:subClassOf rdf:resource="#WineVariety"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#WineVariety"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasTypicalColor"/>
+          <owl:hasValue rdf:resource="#White"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#DryVariety">
+  <rdfs:subClassOf rdf:resource="#WineVariety"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#WineVariety"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasTypicalSugar"/>
+          <owl:hasValue rdf:resource="#Dry"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#SteakPairing">
+  <rdfs:subClassOf rdf:resource="#WineVariety"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#WineVariety"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasTypicalColor"/>
+          <owl:hasValue rdf:resource="#Red"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasTypicalBody"/>
+          <owl:hasValue rdf:resource="#Full"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#SeafoodPairing">
+  <rdfs:subClassOf rdf:resource="#WineVariety"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#WineVariety"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasTypicalColor"/>
+          <owl:hasValue rdf:resource="#White"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasTypicalBody"/>
+          <owl:hasValue rdf:resource="#Light"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#DessertPairing">
+  <rdfs:subClassOf rdf:resource="#WineVariety"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#WineVariety"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasTypicalSugar"/>
+          <owl:hasValue rdf:resource="#Sweet"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#SpicyFoodPairing">
+  <rdfs:subClassOf rdf:resource="#WineVariety"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#WineVariety"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasTypicalColor"/>
+          <owl:hasValue rdf:resource="#White"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasTypicalSugar"/>
+          <owl:hasValue rdf:resource="#OffDry"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#CheesePairing">
+  <rdfs:subClassOf rdf:resource="#WineVariety"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#WineVariety"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasTypicalBody"/>
+          <owl:hasValue rdf:resource="#Full"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#RosePairing">
+  <rdfs:subClassOf rdf:resource="#WineVariety"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#WineVariety"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#canProduceColor"/>
+          <owl:hasValue rdf:resource="#Rose"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#PoultryPairing">
+  <rdfs:subClassOf rdf:resource="#WineVariety"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#WineVariety"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasTypicalColor"/>
+          <owl:hasValue rdf:resource="#Red"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasTypicalBody"/>
+          <owl:hasValue rdf:resource="#Light"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#Red">
+  <rdf:type rdf:resource="#WineColor"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#White">
+  <rdf:type rdf:resource="#WineColor"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Rose">
+  <rdf:type rdf:resource="#WineColor"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Light">
+  <rdf:type rdf:resource="#WineBody"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Medium">
+  <rdf:type rdf:resource="#WineBody"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Full">
+  <rdf:type rdf:resource="#WineBody"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Dry">
+  <rdf:type rdf:resource="#WineSugar"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#OffDry">
+  <rdf:type rdf:resource="#WineSugar"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sweet">
+  <rdf:type rdf:resource="#WineSugar"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Delicate">
+  <rdf:type rdf:resource="#WineFlavor"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Moderate">
+  <rdf:type rdf:resource="#WineFlavor"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Strong">
+  <rdf:type rdf:resource="#WineFlavor"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Chardonnay">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Full"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#France"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chardonnay</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-001</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#France">
+  <rdf:type rdf:resource="#Country"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#SauvignonBlanc">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Strong"/>
+  <originatesFrom rdf:resource="#France"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SauvignonBlanc</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-002</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+  <hasSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fume Blanc</hasSynonym>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Riesling">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#OffDry"/>
+  <hasTypicalFlavor rdf:resource="#Delicate"/>
+  <originatesFrom rdf:resource="#Germany"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Riesling</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-003</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Germany">
+  <rdf:type rdf:resource="#Country"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#PinotGris">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Delicate"/>
+  <originatesFrom rdf:resource="#France"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PinotGris</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-004</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+  <hasSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pinot Grigio</hasSynonym>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Assyrtiko">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Strong"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Assyrtiko</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-005</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Greece">
+  <rdf:type rdf:resource="#Country"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Gewurztraminer">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#OffDry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#France"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gewurztraminer</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-006</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Moscato">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Sweet"/>
+  <hasTypicalFlavor rdf:resource="#Delicate"/>
+  <originatesFrom rdf:resource="#Italy"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Moscato</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-007</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Italy">
+  <rdf:type rdf:resource="#Country"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Viognier">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Strong"/>
+  <originatesFrom rdf:resource="#France"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Viognier</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-008</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Semillon">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#France"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Semillon</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-009</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Roussanne">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#France"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Roussanne</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-010</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Marsanne">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Full"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#France"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Marsanne</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-011</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Albarino">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Strong"/>
+  <originatesFrom rdf:resource="#Spain"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Albarino</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-012</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Spain">
+  <rdf:type rdf:resource="#Country"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Vermentino">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Strong"/>
+  <originatesFrom rdf:resource="#Italy"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vermentino</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-013</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#PinotBlanc">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Delicate"/>
+  <originatesFrom rdf:resource="#France"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PinotBlanc</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-014</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#GrunerVeltliner">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#Austria"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GrunerVeltliner</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-015</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+  <hasSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gruner</hasSynonym>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Austria">
+  <rdf:type rdf:resource="#Country"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Furmint">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Strong"/>
+  <originatesFrom rdf:resource="#Hungary"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Furmint</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-016</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Hungary">
+  <rdf:type rdf:resource="#Country"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Torrontes">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Strong"/>
+  <originatesFrom rdf:resource="#Argentina"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Torrontes</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-017</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Argentina">
+  <rdf:type rdf:resource="#Country"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#CheninBlanc">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#OffDry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#France"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CheninBlanc</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-018</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Picolit">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Sweet"/>
+  <hasTypicalFlavor rdf:resource="#Delicate"/>
+  <originatesFrom rdf:resource="#Italy"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Picolit</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-019</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#UgniBlanc">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Delicate"/>
+  <originatesFrom rdf:resource="#France"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UgniBlanc</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-020</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Glera">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Delicate"/>
+  <originatesFrom rdf:resource="#Italy"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Glera</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-021</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#PedroXimenez">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Full"/>
+  <hasTypicalSugar rdf:resource="#Sweet"/>
+  <hasTypicalFlavor rdf:resource="#Strong"/>
+  <originatesFrom rdf:resource="#Spain"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PedroXimenez</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-022</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Palomino">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Delicate"/>
+  <originatesFrom rdf:resource="#Spain"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Palomino</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-023</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#MuscatOfAlexandria">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Sweet"/>
+  <hasTypicalFlavor rdf:resource="#Strong"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MuscatOfAlexandria</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-024</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+  <hasSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Moscatel de Alejandria</hasSynonym>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Malagouzia">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Malagouzia</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-025</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Moschofilero">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Strong"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Moschofilero</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-026</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Savatiano">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Delicate"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Savatiano</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-027</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Vidiano">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vidiano</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-028</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Vilana">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Delicate"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vilana</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-029</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Roditis">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Delicate"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Roditis</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-030</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Robola">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Strong"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Robola</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-031</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Lagorthi">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Delicate"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lagorthi</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-032</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Kydonitsa">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kydonitsa</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-033</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Aidani">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Delicate"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aidani</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-034</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Athiri">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Delicate"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Athiri</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-035</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Moschoudi">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Delicate"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Moschoudi</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-036</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Debina">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Delicate"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Debina</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-037</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#CabernetSauvignon">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Full"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Strong"/>
+  <originatesFrom rdf:resource="#France"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CabernetSauvignon</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-038</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Merlot">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <canProduceColor rdf:resource="#Red"/>
+  <canProduceColor rdf:resource="#Rose"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#France"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Merlot</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-039</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Syrah">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <canProduceColor rdf:resource="#Red"/>
+  <canProduceColor rdf:resource="#Rose"/>
+  <hasTypicalBody rdf:resource="#Full"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Strong"/>
+  <originatesFrom rdf:resource="#France"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Syrah</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-040</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Malbec">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Full"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Strong"/>
+  <originatesFrom rdf:resource="#France"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Malbec</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-041</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#PinotNoir">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <canProduceColor rdf:resource="#Red"/>
+  <canProduceColor rdf:resource="#Rose"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Delicate"/>
+  <originatesFrom rdf:resource="#France"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PinotNoir</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-042</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+  <hasSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Spatburgunder</hasSynonym>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sangiovese">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#Italy"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sangiovese</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-043</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Tempranillo">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Full"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#Spain"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tempranillo</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-044</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+  <hasSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tinta Roriz</hasSynonym>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Zinfandel">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <canProduceColor rdf:resource="#Red"/>
+  <canProduceColor rdf:resource="#Rose"/>
+  <hasTypicalBody rdf:resource="#Full"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Strong"/>
+  <originatesFrom rdf:resource="#USA"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zinfandel</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-045</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+  <hasSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Primitivo</hasSynonym>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#USA">
+  <rdf:type rdf:resource="#Country"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#CabernetFranc">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#France"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CabernetFranc</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-046</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Nebbiolo">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Full"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Strong"/>
+  <originatesFrom rdf:resource="#Italy"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nebbiolo</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-047</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Barbera">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#Italy"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Barbera</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-048</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Carmenere">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Full"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#Chile"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Carmenere</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-049</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+  <hasSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Grande Vidure</hasSynonym>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Chile">
+  <rdf:type rdf:resource="#Country"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Gamay">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Delicate"/>
+  <originatesFrom rdf:resource="#France"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gamay</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-050</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Grenache">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#Spain"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Grenache</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-051</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Mourvedre">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Full"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Strong"/>
+  <originatesFrom rdf:resource="#France"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mourvedre</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-052</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+  <hasSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Monastrell</hasSynonym>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Cinsault">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <canProduceColor rdf:resource="#Red"/>
+  <canProduceColor rdf:resource="#Rose"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Delicate"/>
+  <originatesFrom rdf:resource="#France"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cinsault</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-053</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#PetitVerdot">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Full"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Strong"/>
+  <originatesFrom rdf:resource="#France"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PetitVerdot</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-054</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Bonarda">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#Argentina"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bonarda</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-055</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Corvina">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#Italy"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Corvina</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-056</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Rondinella">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Delicate"/>
+  <originatesFrom rdf:resource="#Italy"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rondinella</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-057</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TourigaNacional">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Full"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Strong"/>
+  <originatesFrom rdf:resource="#Portugal"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TourigaNacional</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-058</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+  <hasSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Touriga</hasSynonym>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Portugal">
+  <rdf:type rdf:resource="#Country"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TourigaFranca">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#Portugal"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TourigaFranca</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-059</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Tannat">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Full"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Strong"/>
+  <originatesFrom rdf:resource="#France"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tannat</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-060</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#PinotMeunier">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Delicate"/>
+  <originatesFrom rdf:resource="#France"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PinotMeunier</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-061</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Brachetto">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Sweet"/>
+  <hasTypicalFlavor rdf:resource="#Delicate"/>
+  <originatesFrom rdf:resource="#Italy"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Brachetto</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-062</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Agiorgitiko">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <canProduceColor rdf:resource="#Red"/>
+  <canProduceColor rdf:resource="#Rose"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Agiorgitiko</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-063</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Xinomavro">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <canProduceColor rdf:resource="#Red"/>
+  <canProduceColor rdf:resource="#Rose"/>
+  <hasTypicalBody rdf:resource="#Full"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Strong"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Xinomavro</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-064</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Limnio">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Limnio</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-065</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Mavroudi">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mavroudi</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-066</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Mavrotragano">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Full"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Strong"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mavrotragano</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-067</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Negoska">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Negoska</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-068</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Limniona">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Limniona</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-069</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Mandilaria">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Full"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Strong"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mandilaria</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-070</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Mouchtaro">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mouchtaro</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-071</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Pamidi">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Delicate"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pamidi</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-072</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Vivlinos">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#Red"/>
+  <canProduceColor rdf:resource="#Red"/>
+  <canProduceColor rdf:resource="#Rose"/>
+  <hasTypicalBody rdf:resource="#Medium"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vivlinos</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-073</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sideritis">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Light"/>
+  <hasTypicalSugar rdf:resource="#Dry"/>
+  <hasTypicalFlavor rdf:resource="#Moderate"/>
+  <originatesFrom rdf:resource="#Greece"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sideritis</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-074</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Malvasia">
+  <rdf:type rdf:resource="#WineVariety"/>
+  <hasTypicalColor rdf:resource="#White"/>
+  <hasTypicalBody rdf:resource="#Full"/>
+  <hasTypicalSugar rdf:resource="#Sweet"/>
+  <hasTypicalFlavor rdf:resource="#Strong"/>
+  <originatesFrom rdf:resource="#Portugal"/>
+  <hasVarietyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Malvasia</hasVarietyName>
+  <hasSKU rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V-075</hasSKU>
+  <isAromatic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isAromatic>
+  <isIndigenousToGreece rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIndigenousToGreece>
+</owl:NamedIndividual>
+
+<owl:AllDifferent>
+  <owl:distinctMembers rdf:parseType="Collection">
+    <rdf:Description rdf:about="#France"/>
+    <rdf:Description rdf:about="#Germany"/>
+    <rdf:Description rdf:about="#Greece"/>
+    <rdf:Description rdf:about="#Italy"/>
+    <rdf:Description rdf:about="#Spain"/>
+    <rdf:Description rdf:about="#Austria"/>
+    <rdf:Description rdf:about="#Hungary"/>
+    <rdf:Description rdf:about="#Argentina"/>
+    <rdf:Description rdf:about="#USA"/>
+    <rdf:Description rdf:about="#Chile"/>
+    <rdf:Description rdf:about="#Portugal"/>
+  </owl:distinctMembers>
+</owl:AllDifferent>
+
+<owl:AllDifferent>
+  <owl:distinctMembers rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Chardonnay"/>
+    <rdf:Description rdf:about="#SauvignonBlanc"/>
+    <rdf:Description rdf:about="#Riesling"/>
+    <rdf:Description rdf:about="#PinotGris"/>
+    <rdf:Description rdf:about="#Assyrtiko"/>
+    <rdf:Description rdf:about="#Gewurztraminer"/>
+    <rdf:Description rdf:about="#Moscato"/>
+    <rdf:Description rdf:about="#Viognier"/>
+    <rdf:Description rdf:about="#Semillon"/>
+    <rdf:Description rdf:about="#Roussanne"/>
+    <rdf:Description rdf:about="#Marsanne"/>
+    <rdf:Description rdf:about="#Albarino"/>
+    <rdf:Description rdf:about="#Vermentino"/>
+    <rdf:Description rdf:about="#PinotBlanc"/>
+    <rdf:Description rdf:about="#GrunerVeltliner"/>
+    <rdf:Description rdf:about="#Furmint"/>
+    <rdf:Description rdf:about="#Torrontes"/>
+    <rdf:Description rdf:about="#CheninBlanc"/>
+    <rdf:Description rdf:about="#Picolit"/>
+    <rdf:Description rdf:about="#UgniBlanc"/>
+    <rdf:Description rdf:about="#Glera"/>
+    <rdf:Description rdf:about="#PedroXimenez"/>
+    <rdf:Description rdf:about="#Palomino"/>
+    <rdf:Description rdf:about="#MuscatOfAlexandria"/>
+    <rdf:Description rdf:about="#Malagouzia"/>
+    <rdf:Description rdf:about="#Moschofilero"/>
+    <rdf:Description rdf:about="#Savatiano"/>
+    <rdf:Description rdf:about="#Vidiano"/>
+    <rdf:Description rdf:about="#Vilana"/>
+    <rdf:Description rdf:about="#Roditis"/>
+    <rdf:Description rdf:about="#Robola"/>
+    <rdf:Description rdf:about="#Lagorthi"/>
+    <rdf:Description rdf:about="#Kydonitsa"/>
+    <rdf:Description rdf:about="#Aidani"/>
+    <rdf:Description rdf:about="#Athiri"/>
+    <rdf:Description rdf:about="#Moschoudi"/>
+    <rdf:Description rdf:about="#Debina"/>
+    <rdf:Description rdf:about="#CabernetSauvignon"/>
+    <rdf:Description rdf:about="#Merlot"/>
+    <rdf:Description rdf:about="#Syrah"/>
+    <rdf:Description rdf:about="#Malbec"/>
+    <rdf:Description rdf:about="#PinotNoir"/>
+    <rdf:Description rdf:about="#Sangiovese"/>
+    <rdf:Description rdf:about="#Tempranillo"/>
+    <rdf:Description rdf:about="#Zinfandel"/>
+    <rdf:Description rdf:about="#CabernetFranc"/>
+    <rdf:Description rdf:about="#Nebbiolo"/>
+    <rdf:Description rdf:about="#Barbera"/>
+    <rdf:Description rdf:about="#Carmenere"/>
+    <rdf:Description rdf:about="#Gamay"/>
+    <rdf:Description rdf:about="#Grenache"/>
+    <rdf:Description rdf:about="#Mourvedre"/>
+    <rdf:Description rdf:about="#Cinsault"/>
+    <rdf:Description rdf:about="#PetitVerdot"/>
+    <rdf:Description rdf:about="#Bonarda"/>
+    <rdf:Description rdf:about="#Corvina"/>
+    <rdf:Description rdf:about="#Rondinella"/>
+    <rdf:Description rdf:about="#TourigaNacional"/>
+    <rdf:Description rdf:about="#TourigaFranca"/>
+    <rdf:Description rdf:about="#Tannat"/>
+    <rdf:Description rdf:about="#PinotMeunier"/>
+    <rdf:Description rdf:about="#Brachetto"/>
+    <rdf:Description rdf:about="#Agiorgitiko"/>
+    <rdf:Description rdf:about="#Xinomavro"/>
+    <rdf:Description rdf:about="#Limnio"/>
+    <rdf:Description rdf:about="#Mavroudi"/>
+    <rdf:Description rdf:about="#Mavrotragano"/>
+    <rdf:Description rdf:about="#Negoska"/>
+    <rdf:Description rdf:about="#Limniona"/>
+    <rdf:Description rdf:about="#Mandilaria"/>
+    <rdf:Description rdf:about="#Mouchtaro"/>
+    <rdf:Description rdf:about="#Pamidi"/>
+    <rdf:Description rdf:about="#Vivlinos"/>
+    <rdf:Description rdf:about="#Sideritis"/>
+    <rdf:Description rdf:about="#Malvasia"/>
+  </owl:distinctMembers>
+</owl:AllDifferent>
+
+<owl:AllDifferent>
+  <owl:distinctMembers rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Delicate"/>
+    <rdf:Description rdf:about="#Moderate"/>
+    <rdf:Description rdf:about="#Strong"/>
+  </owl:distinctMembers>
+</owl:AllDifferent>
+
+<owl:AllDifferent>
+  <owl:distinctMembers rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Dry"/>
+    <rdf:Description rdf:about="#OffDry"/>
+    <rdf:Description rdf:about="#Sweet"/>
+  </owl:distinctMembers>
+</owl:AllDifferent>
+
+<owl:AllDifferent>
+  <owl:distinctMembers rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Light"/>
+    <rdf:Description rdf:about="#Medium"/>
+    <rdf:Description rdf:about="#Full"/>
+  </owl:distinctMembers>
+</owl:AllDifferent>
+
+<owl:AllDifferent>
+  <owl:distinctMembers rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Red"/>
+    <rdf:Description rdf:about="#White"/>
+    <rdf:Description rdf:about="#Rose"/>
+  </owl:distinctMembers>
+</owl:AllDifferent>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#WineColor"/>
+    <rdf:Description rdf:about="#WineBody"/>
+    <rdf:Description rdf:about="#WineSugar"/>
+    <rdf:Description rdf:about="#WineFlavor"/>
+    <rdf:Description rdf:about="#Country"/>
+    <rdf:Description rdf:about="#WineVariety"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+<!-- Disjoint variety subclasses on functional properties: a variety has exactly one
+     typical colour, sugar and body, so these pairs can never overlap. The sugar/body
+     halves use the pairing classes (DessertPairing ≡ Sweet, CheesePairing ≡ Full) since
+     the standalone SweetVariety/FullBodiedVariety duplicates were removed. RedVariety is
+     not disjoint with rosé membership (rosé varieties are red varieties that can also be
+     vinified as rosé via canProduceColor). -->
+<rdf:Description rdf:about="#RedVariety">
+  <owl:disjointWith rdf:resource="#WhiteVariety"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#DryVariety">
+  <owl:disjointWith rdf:resource="#DessertPairing"/>
+</rdf:Description>
+
+
+</rdf:RDF>
