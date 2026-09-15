@@ -1,5 +1,4 @@
-# Wine DSS
-
+# Sommelier-MCP
 Wine pairing decision support system exposed as an MCP server.  
 Uses an OWL ontology + HermiT reasoner to match dishes to grape varieties, then queries a shop catalogue (SQLite).
 
